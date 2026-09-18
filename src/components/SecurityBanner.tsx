@@ -1,0 +1,1 @@
+export function SecurityBanner() { return <aside className="notice"><strong>Keep your PIN private.</strong> MDR-ama will never ask for your UPI PIN. Enter it only inside your trusted UPI app, and verify the recipient name and amount before approving every payment.</aside>; }

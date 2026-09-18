@@ -1,0 +1,3 @@
+import { describe, expect, it } from "vitest";
+import { formatPaise, parseRupeesToPaise, splitIntoChunks } from "./money";
+describe("money",()=>{it("uses exact paise",()=>{expect(parseRupeesToPaise("8,750.55")).toBe(875055);expect(formatPaise(200000)).toBe("₹2,000.00");});it("keeps exact split boundaries",()=>{expect(splitIntoChunks(200001,200000)).toEqual([200000,1]);expect(splitIntoChunks(875055,200000)).toEqual([200000,200000,200000,200000,75055]);});it("rejects unsafe input and plans",()=>{expect(()=>parseRupeesToPaise("1.234")).toThrow();expect(()=>splitIntoChunks(5000001,200000)).toThrow(/25/);});});
