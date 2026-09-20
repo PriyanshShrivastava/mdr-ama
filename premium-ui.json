@@ -1,0 +1,18 @@
+{
+  "profile": "product-admin",
+  "sourceRoots": ["src"],
+  "locale": "en-IN",
+  "canonicalMap": "UX-CONTRACT.md",
+  "requiredCapabilities": ["Select/Listbox", "Form", "Scrollbar", "CRUD"],
+  "ownership": {
+    "Select/Listbox": "native",
+    "Form": "CreateSessionForm",
+    "Scrollbar": "globals.css",
+    "CRUD": "server route /master"
+  },
+  "requiredCommands": ["unit", "typecheck"],
+  "commands": {
+    "unit": "npm run test",
+    "typecheck": "npx tsc --noEmit"
+  }
+}
