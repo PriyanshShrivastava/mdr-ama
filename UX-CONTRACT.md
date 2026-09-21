@@ -20,12 +20,15 @@ Visual intent lives in [DESIGN.md](DESIGN.md). This document owns shared observa
 | Select/Listbox | native `<select>` | This contract | merchant classification | keyboard and platform popup |
 | Scrollbar | `globals.css` | `DESIGN.md` | none | computed style / narrow viewport |
 | CRUD | server route `/master` | PRD and this contract | create session | server validation and QR render |
+| Active-session Home navigation | `SessionHomeGuard` | This contract | payer flow only | component keyboard/navigation test + live payer smoke |
 
 ## Validation, feedback and recovery
 
 The merchant form validates on submit, focuses the first invalid field and describes each correction in text. A server validation failure renders an error card with a return action. Creating a master QR is a navigation, not an asynchronous mutation, so it has no fake loading toast.
 
 Payer-reported completion is stored only in local storage. It never becomes settlement confirmation. The customer can retry with a new attempt reference and can use the fallback UPI QR if an app does not open.
+
+Outside an active payer step, the MDR-ama logo is a direct Home link. During an active payer step, the logo opens an app-owned modal before leaving. **Stay in session** receives initial focus; Escape is equivalent to staying; **Leave session** navigates Home. Closing the modal restores focus to the logo. The message states that local progress remains available from the original, unexpired session link.
 
 ## Accessibility and responsive policy
 
