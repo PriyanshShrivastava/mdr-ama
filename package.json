@@ -1,13 +1,21 @@
 {
   "name": "mdr-ama",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest run"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "governance:check": "node scripts/check-repository-governance.mjs",
+    "commitlint": "commitlint",
+    "verify": "npm run governance:check && npm run lint && npm run typecheck && npm run test:coverage && npm run build",
+    "prepare": "husky"
   },
   "dependencies": {
     "framer-motion": "^13.4.0",
@@ -18,13 +26,21 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^21.2.3",
+    "@commitlint/config-conventional": "^21.2.3",
+    "@eslint/eslintrc": "^3.3.7",
     "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
     "@types/node": "^24.13.5",
     "@types/qrcode": "^1.5.6",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitest/coverage-v8": "^5.0.1",
     "eslint": "^9",
     "eslint-config-next": "^15.5.25",
+    "husky": "^9.1.7",
+    "jsdom": "^29.1.1",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^5.0.1"
