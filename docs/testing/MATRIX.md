@@ -15,6 +15,7 @@ Every behavior-bearing TypeScript source file is registered here. `npm run gover
 | `src/components/PayerFlow.tsx` | `src/components/PayerFlow.test.tsx` |
 | `src/components/SecondaryNav.tsx` | `src/components/static-components.test.tsx` |
 | `src/components/SecurityBanner.tsx` | `src/components/static-components.test.tsx` |
+| `src/components/SessionHomeGuard.tsx` | `src/components/SessionHomeGuard.test.tsx` |
 | `src/app/layout.tsx` | Next production build + route smoke gate |
 | `src/app/page.tsx` | Next production build + `Landing` component tests |
 | `src/app/create/page.tsx` | Next production build + `CreateSessionForm` component tests |
